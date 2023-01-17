@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.aapsasha.desktopapp.ApplicationController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="40">
+         <children>
+            <Button mnemonicParsing="false" onAction="#FileButtonClicked" text="choose file" textAlignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#PasswordButtonClicked" text="choose passwords" />
+            <Button mnemonicParsing="false" onAction="#ProcessButtonClicked" text="open" />
+         </children>
+      </VBox>
+      <ListView fx:id="expressionsView" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="resultView" prefHeight="200.0" prefWidth="200.0" />
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="150.0" spacing="10">
+         <children>
+            <Label alignment="CENTER" text="output file type">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></Label>
+            <ChoiceBox fx:id="outputFileType" onAction="#outputTypeChanged" prefWidth="150.0" value="TXT">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="TXT" />
+                     <String fx:value="XML" />
+                     <String fx:value="JSON" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+
+            <Label text="convert functions:" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font></Label>
+            <Button mnemonicParsing="false" onAction="#ZipButtonClicked" text="ZIP" />
+            <Button mnemonicParsing="false" onAction="#JarButtonClicked" text="JAR" />
+            <Button mnemonicParsing="false" onAction="#AESButtonClicked" text="AES encrypt" />
+            <Button mnemonicParsing="false" onAction="#DESButtonClicked" text="DES encrypt" />
+            <Button fx:id="doneButton" mnemonicParsing="false" onAction="#CloseButtonClicked" text="done!" visible="false" />
+         </children>
+      </VBox>
+   </children>
+</HBox>

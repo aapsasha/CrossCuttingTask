@@ -1,0 +1,11 @@
+# Project exclude paths
+/businessLogic/target/
+/ConsoleApp/target/
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
