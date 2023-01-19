@@ -17,9 +17,6 @@ public class ParserApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ParserApplication.class.getResource("hello-view.fxml"));
 
-        Label helloWorldLabel = new Label("Hello world!");
-        helloWorldLabel.setAlignment(Pos.CENTER);
-
         Scene scene = new Scene(fxmlLoader.load(), 650, 300);
         stage.setTitle("Math expression parser");
         stage.setScene(scene);
