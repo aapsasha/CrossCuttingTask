@@ -56,31 +56,31 @@ public class ExpressionParser implements CalculationStrategy {
         return result;
     }
 
-    private Node expression(StringHolder sh) throws Exception {
-        Node pt = term(sh);
+    private Node expression(StringHolder currentStringSuffix) throws Exception {
+        Node pt = term(currentStringSuffix);
         Character ch;
-        while ((ch = sh.nextChar("+-")) != null) {
+        while ((ch = currentStringSuffix.nextChar("+-")) != null) {
             Node p = new Node(ch == '+' ? Type.add : Type.subtract);
             p.left = pt;
             pt = p;
-            p.right = term(sh);
+            p.right = term(currentStringSuffix);
         }
         return pt;
     }
 
-    private Node term(StringHolder sh) throws Exception {
-        Node pf = factor(sh);
+    private Node term(StringHolder currentStringSuffix) throws Exception {
+        Node pf = nextSection(currentStringSuffix);
         Character ch;
-        while ((ch = sh.nextChar("*/")) != null) {
+        while ((ch = currentStringSuffix.nextChar("*/")) != null) {
             Node p = new Node(ch == '*' ? Type.multiply : Type.divide);
             p.left = pf;
             pf = p;
-            p.right = factor(sh);
+            p.right = nextSection(currentStringSuffix);
         }
         return pf;
     }
 
-    private Node factor(StringHolder sh) throws Exception {
+    private Node nextSection(StringHolder sh) throws Exception {
         Character ch = sh.nextChar("(-0123456789");
         if (ch == null)
             if (sh.chars_available())
@@ -95,7 +95,7 @@ public class ExpressionParser implements CalculationStrategy {
             return n1;
         } else if (ch == '-') {
             Node n2 = new Node(Type.minus);
-            n2.left = factor(sh);
+            n2.left = nextSection(sh);
             return n2;
         } else if (ch >= '0' && ch <= '9') {
             double num = 0; int nDigits = 0;

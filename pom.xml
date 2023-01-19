@@ -11,6 +11,8 @@
     <modules>
         <module>businessLogic</module>
         <module>ConsoleApp</module>
+        <module>REST2</module>
+        <module>RestFullApp</module>
     </modules>
 
     <properties>

@@ -17,11 +17,11 @@ import java.util.regex.Pattern;
 
 import static org.aapsasha.businessLogic.InputOutput.FileExtensions.*;
 
-public class ReadingManager {
+public class inputManager {
 
     AliceDecrypter aliceDecrypter;
 
-    public ReadingManager(){
+    public inputManager(){
         aliceDecrypter = new AliceDecrypter();
     }
 

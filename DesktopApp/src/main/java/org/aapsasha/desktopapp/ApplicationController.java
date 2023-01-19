@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import org.aapsasha.businessLogic.Calculation.CalculationContext;
 import org.aapsasha.businessLogic.Calculation.Library.ExpressionParser;
 import org.aapsasha.businessLogic.InputOutput.FileExtensions;
-import org.aapsasha.businessLogic.InputOutput.InputConvert.ReadingManager;
+import org.aapsasha.businessLogic.InputOutput.InputConvert.inputManager;
 import org.aapsasha.businessLogic.InputOutput.OutputConvert.Encrypting.AliceEncrypter;
 import org.aapsasha.businessLogic.InputOutput.OutputConvert.Packing.Jar.JarPacker;
 import org.aapsasha.businessLogic.InputOutput.OutputConvert.Packing.ZIP.ZipPacker;
@@ -63,7 +63,7 @@ public class ApplicationController {
         if(mainFile == null){
             return;
         }
-        ReadingManager manager = new ReadingManager();
+        inputManager manager = new inputManager();
         expressions = manager.read(mainFile, passwordlist);
 
         ObservableList<String> tmpList = FXCollections.observableArrayList();
